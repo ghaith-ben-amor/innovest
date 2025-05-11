@@ -1,0 +1,16 @@
+Options +FollowSymLinks
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+</IfModule>
+
+<FilesMatch "\.(jpg|jpeg|png|gif)$">
+    Header set Access-Control-Allow-Origin "*"
+    Require all granted
+</FilesMatch>
+
+# Ensure PHP files cannot be accessed directly
+<FilesMatch "\.php$">
+    Require all denied
+</FilesMatch> 
